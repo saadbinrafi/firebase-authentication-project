@@ -63,7 +63,7 @@ const Navbar = () => {
 
                 {user? <div>
                     {user.email}
-                    <button onClick={() => logOut()}><small> Logout</small></button>
+                    <button className='btn btn-secondary' onClick={() => logOut()}> Logout</button>
                 </div> : ""}
 
             </div>
