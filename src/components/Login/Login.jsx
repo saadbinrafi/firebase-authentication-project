@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../AuthProvider/Authprovider';
 
 const Login = () => {
-    const {loginUser} = useContext(AuthContext)
+    const {loginUser, googleLogin} = useContext(AuthContext)
 
 
 
@@ -17,6 +17,10 @@ const Login = () => {
         loginUser(email, password)
     }
 
+    const handleGoogleLogin = (e) => {
+        googleLogin()
+        .then (result => setUser(result.user))
+    }
 
     return (
         <div>
@@ -43,10 +47,12 @@ const Login = () => {
                             </div>
 
                             <br />
-                            <button type='submit' className='btn btn-primary w-full lg:mt-6'>Register</button>
+                            <button type='submit' className='btn btn-primary w-full lg:mt-6'>Authentication Login</button>
                         </div>
                     </div>
                 </form>
+                <br />
+                <button onClick={handleGoogleLogin} className='btn btn-secondary w-full'>Google Login</button>
             </div>
         </div>
     );

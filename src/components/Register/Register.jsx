@@ -101,6 +101,7 @@ const Register = () => {
                         </div>
                     </div>
                 </form>
+                
             </div>
         </div>
 
