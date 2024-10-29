@@ -15,6 +15,8 @@ import Register from './components/Register/Register.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import InsideHome from './components/insideHome/InsideHome.jsx';
 import Authprovider from './components/AuthProvider/Authprovider.jsx';
+import About from './components/About/About.jsx';
+import UserRoute from './components/userRoute/userRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,7 +41,13 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>
-      }
+      },
+      {
+        path: "/about",
+        element: <UserRoute>
+          <About></About>
+        </UserRoute>
+      },
     ]
   },
 ]);

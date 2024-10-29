@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut  } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../../Firebase/Firebase.init';
 
@@ -13,14 +13,14 @@ const Authprovider = ({ children }) => {
 
     const registerUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
-        
-        
+
+
     }
 
-    const loginUser = (email, password) =>{
+    const loginUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
-        
-       
+
+
     }
 
 
@@ -30,11 +30,11 @@ const Authprovider = ({ children }) => {
 
     const logOut = () => {
         return signOut(auth)
-    } 
+    }
 
 
 
-    const authInfo ={
+    const authInfo = {
         registerUser,
         loginUser,
         logOut,
@@ -46,19 +46,19 @@ const Authprovider = ({ children }) => {
 
 
     useEffect(() => {
-        const unsubscribe =  onAuthStateChanged(auth, (currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
-              // User is signed in, see docs for a list of available properties
-              // https://firebase.google.com/docs/reference/js/auth.user
-              console.log(currentUser);
-              // ...
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/auth.user
+                setUser(currentUser);
+                // ...
             } else {
-              // User is signed out
-              // ...
-              console.log(logOut)
+                // User is signed out
+                // ...
+                setUser(null)
             }
-          });
-    },[])
+        });
+    }, [])
 
 
 

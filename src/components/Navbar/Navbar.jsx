@@ -15,6 +15,9 @@ const Navbar = () => {
         <li><NavLink to="/login">Login</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
+       {
+        user &&  <li><NavLink to="/about">About</NavLink></li>
+       }
      
     
     </>
@@ -60,7 +63,7 @@ const Navbar = () => {
 
                 {user? <div>
                     {user.email}
-                    <button onClick={() => logOut()}>Logout</button>
+                    <button onClick={() => logOut()}><small> Logout</small></button>
                 </div> : ""}
 
             </div>
